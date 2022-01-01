@@ -7,7 +7,7 @@
 function findOdd(A) {
   let countObj = {};
   A.forEach(num => (countObj[num] ? (countObj[num] += 1) : (countObj[num] = 1)));
-  return +Object.keys(countObj).find(num => num % 2 !== 0);
+  return +Object.entries(countObj).find(num => num[1] % 2 !== 0)[0];
 }
 
-console.log(findOdd([1, 1, 1, 5, 5]));
+console.log(findOdd([1, 1, 5, 5, 5]));
