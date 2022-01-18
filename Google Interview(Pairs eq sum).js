@@ -8,7 +8,8 @@ const hasPairsEqSum = function (arr, sum) {
   return false;
 };
 
-// console.log(hasPairsEqSum([1, -2, 3, 0, -3], 0));
+console.log(hasPairsEqSum([1, -2, 3, 0, -3], 0));
+// console.log(hasPairsEqSum([1, 2, 3, 4, 9], 9));
 
 const hasPairsEqSumObj = function (arr, sum) {
   const obj = {};
