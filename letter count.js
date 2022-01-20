@@ -14,7 +14,24 @@ const count = function (str) {
     }
   }
 
-  console.log(fin);
+  return fin;
+};
+
+const countObj = function (str) {
+  let fin = '';
+  let obj = {};
+
+  for (let i = 0, j = 1; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      obj[str[i]] = ++obj[str[i]] || 2;
+    } else {
+      fin += obj[str[i]] === undefined ? str[i] : str[i] + obj[str[i]];
+      obj = {};
+    }
+  }
+
+  return fin;
 };
 
 console.log(count(str));
+console.log(countObj(str));
