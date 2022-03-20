@@ -10,10 +10,10 @@
 
 // For a given lesson time in minutes (min) , write a function cost to calculate how much the lesson costs. Input is always > 0.
 
-function cost(mins) {
-  const hasGrace = (mins - 60) % 30 < 6 ? (mins - 60) % 30 : false;
+function cost(minutes) {
+  const hasGrace = (minutes - 60) % 30 < 6 ? (minutes - 60) % 30 : false;
 
-  if (mins < 66) return 30;
-  if (hasGrace) return 30 + 10 * ((mins - 60 - hasGrace) / 30);
-  return 30 + 10 * Math.ceil((mins - 60) / 30);
+  if (minutes < 66) return 30;
+  if (hasGrace) return 30 + 10 * ((minutes - 60 - hasGrace) / 30);
+  return 30 + 10 * Math.ceil((minutes - 60) / 30);
 }
