@@ -13,4 +13,4 @@ const pali = function (str) {
   return true;
 };
 
-console.log(pali(str));
+console.log(pali('1220'));
