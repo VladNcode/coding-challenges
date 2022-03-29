@@ -60,3 +60,4 @@ const price = cart.reduce(
 );
 
 console.log(cart, price);
+console.log('a');
