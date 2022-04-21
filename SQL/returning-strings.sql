@@ -5,7 +5,6 @@ SELECT
 FROM
 	person;
 
--- //////////////////////////////////
 CREATE
 OR REPLACE FUNCTION greeting_func (t1 text) RETURNS text AS $ $
 SELECT
@@ -18,4 +17,4 @@ $ $ LANGUAGE SQL;
 SELECT
 	greeting_func(name) AS greeting
 FROM
-	person
+	person;
