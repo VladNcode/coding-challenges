@@ -7,3 +7,17 @@
 // solve("aaaa") = 2. Longest prefix which == suffix is "aa". You should not overlap the prefix and suffix
 // solve("aa") = 1. You should not overlap the prefix and suffix.
 // solve("a") = 0. You should not overlap the prefix and suffix.
+
+function solve(s) {
+	let max = 0;
+	let subStr = '';
+
+	for (let i = 0, j = s.length - 1; i < j; i++, j--) {
+		subStr += s[i];
+		if (s.endsWith(subStr)) max = Math.max(max, subStr.length);
+	}
+
+	return max;
+}
+
+console.log(solve('abcabca'));
