@@ -28,11 +28,12 @@ function longestConsec(arr, k) {
 
 	const strLengths = arr.map(el => el.length);
 
-	let max = 0;
-	let idx = 0;
+	let len = strLengths.slice(0, k).reduce((acc, el) => acc + el, 0);
+	let max = len;
+	let idx = k - 1;
 
-	for (let i = 0; i < strLengths.length - k + 1; i++) {
-		const len = strLengths.slice(i, i + k).reduce((acc, el) => acc + el, 0);
+	for (let i = k; i < strLengths.length; i++) {
+		len = len - strLengths[i - k] + strLengths[i];
 
 		if (max < len) {
 			max = len;
@@ -40,7 +41,7 @@ function longestConsec(arr, k) {
 		}
 	}
 
-	return arr.slice(idx, idx + k).join('');
+	return arr.slice(idx - k + 1, idx + 1).join('');
 }
 
-console.log(longestConsec(['tree', 'foling', 'trashy', 'blue', 'abcdef', 'uvwxyz'], 2));
+console.log(longestConsec(['wlwsasphmxx', 'owiaxujylentrklctozmymu', 'wpgozvxxiu'], 2));
