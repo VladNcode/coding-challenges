@@ -31,5 +31,3 @@ function merge(line) {
 
 	return line;
 }
-
-console.log(merge([8, 8, 16, 0]));
