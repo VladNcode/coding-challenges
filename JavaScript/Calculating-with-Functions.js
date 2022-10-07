@@ -16,6 +16,8 @@
 // const times = first => second => Math.floor(second * first);
 // const dividedBy = first => second => Math.floor(second / first);
 
+// const [zero, one, two, three, four, five, six, seven, eight, nine] = [...Array(10)].map((_, i) => f => f ? f(i) : i);
+
 ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'].forEach(function (name, i) {
 	return (this[name] = fn => (fn ? fn(i) : i));
 });
