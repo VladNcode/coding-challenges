@@ -32,4 +32,4 @@ function merge(line) {
 	return line;
 }
 
-console.log('test');
+console.log('test 2');
