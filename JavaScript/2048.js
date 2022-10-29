@@ -31,3 +31,5 @@ function merge(line) {
 
 	return line;
 }
+
+console.log('test');
