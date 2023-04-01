@@ -20,3 +20,4 @@ const rot13 = msg =>
 
 console.log(rot13('This is my first ROT13 excercise!'));
 console.log(rot13('This is a test'));
+console.log(rot13('This is a test2'));
