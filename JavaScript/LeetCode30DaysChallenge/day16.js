@@ -1,23 +1,40 @@
 const throttle = function (fn, t) {
-  let timeout = null;
-  let savedArgs = null;
+	let shouldCall = true;
+	let lastArgs = null;
 
-  const timeOutFunction = () => {
-    if (savedArgs === null) {
-      timeout = null;
-    } else {
-      fn(...savedArgs);
-      savedArgs = null;
-      timeout = setTimeout(timeOutFunction, t);
-    }
-  };
+	const callAndReset = () => {
+		fn(...lastArgs);
+		shouldCall = false;
+		lastArgs = null;
+	};
 
-  return function (...args) {
-    if (timeout) {
-      savedArgs = args;
-    } else {
-      fn(...args);
-      timeout = timeout = setTimeout(timeOutFunction, t);
-    }
-  };
+	const execute = () => {
+		if (shouldCall && lastArgs) {
+			callAndReset();
+
+			setTimeout(() => {
+				shouldCall = true;
+				execute();
+			}, t);
+		}
+	};
+
+	return (...args) => {
+		lastArgs = args;
+		execute();
+	};
+};
+
+const throttle2 = (fn, t) => {
+	let timeout = null;
+	let nextExecutionTime = 0;
+
+	return (...args) => {
+		clearTimeout(timeout);
+
+		timeout = setTimeout(() => {
+			fn(...args);
+			nextExecutionTime = Date.now() + t;
+		}, nextExecutionTime - Date.now());
+	};
 };
