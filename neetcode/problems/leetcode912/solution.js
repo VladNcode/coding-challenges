@@ -47,3 +47,30 @@ const merge = (nums, start, mid, end) => {
 
 	return nums;
 };
+
+function findUniq(arr) {
+	const lettersScores = {};
+
+	arr.forEach((str, i) => {
+		for (const letter of str.toLowerCase()) {
+			if (lettersScores[letter]) lettersScores[letter][0]++;
+			else lettersScores[letter] = [1, i];
+		}
+	});
+
+	let lowestScore = Infinity;
+	let idx = -1;
+
+	for (const letter in lettersScores) {
+		const [count, index] = lettersScores[letter];
+
+		if (count < lowestScore) {
+			lowestScore = count;
+			idx = index;
+		}
+	}
+
+	return arr[idx];
+}
+
+console.log(findUniq(['foobar', 'barfo', 'fobara', '   ', 'fobra', 'oooofrab']));
